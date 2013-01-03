@@ -24,5 +24,8 @@ seq:{[from;to] seqn[from;to;1]}
 / range: min/max of vector
 range:{(min x;max x)}
 
+/ quantile: simple quantile using ecdf
+quantile:{[x;p] xs:asc distinct x; n:count xs; 0.5*sum xs (floor n*p;1+floor n*p)}
+
 
 
