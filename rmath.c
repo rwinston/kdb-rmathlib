@@ -85,8 +85,8 @@ K gseed() {
  * Binomial coefficients (n-choose-k)
  */
 K nchoosek(K n, K k) {
-    double fn = n->f;
-    double fk = k->f;
+    double fn = (double)n->i;
+    double fk = (double)k->i;
     double ret = choose(fn, fk);
     return kf(ret); 
 }

@@ -19,6 +19,10 @@ diag:{i:til x*x;"i" $ (x;x)#raze 0=i mod (x+1)}
 seqn:{[from;to;by] $[to < from;'order;]; s:(from+til (to-from-1)); $[by=1;s;c:floor(to-from)%by;z:from+0,sums c#by;z]}
 
 / seq: sequence [from,to]
-seq{[from;to] seqn[from;to;1]}
+seq:{[from;to] seqn[from;to;1]}
+
+/ range: min/max of vector
+range:{(min x;max x)}
+
 
 
