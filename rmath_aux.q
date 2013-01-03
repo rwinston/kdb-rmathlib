@@ -27,5 +27,7 @@ range:{(min x;max x)}
 / quantile: simple quantile using ecdf
 quantile:{[x;p] xs:asc distinct x; n:count xs; 0.5*sum xs (floor n*p;1+floor n*p)}
 
+/ summary: condensed summary stats (min/max/mean/median/.25 quantile/.75 quantile)
+summary:{ `min`1q`median`mean`3q`max!(min x;quantile[x;.25];med x;avg x;quantile[x;.75];max x) }
 
 
