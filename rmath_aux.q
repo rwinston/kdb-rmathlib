@@ -6,6 +6,15 @@ rnorm:{[n] rnn[n;`float$0;`float$1]}
 / scale: return x-mean(x)/sd(x)
 scale:{(x-avg x)%dev x}
 
+/ sigmoid scale function: f(x)->[0,1]
+sigmoid:{1%(1+exp[neg x])}
+
+/ tanh scale function: f(x)->[-1,1]
+tanh:{(exp[x]-exp[neg x])%(exp[x]+exp[neg x])}
+
+/ minmax scale function: f(x)->[0,1]
+minmax:{(x-min[x])%(max[x]-min[x]) }
+
 / table: frequency table by symbol
 table:{[x;y] f:{[s]count each group s}; ?[y;();();(f; x)]}
 
@@ -29,5 +38,6 @@ quantile:{[x;p] xs:asc distinct x; n:count xs; 0.5*sum xs (floor n*p;1+floor n*p
 
 / summary: condensed summary stats (min/max/mean/median/.25 quantile/.75 quantile)
 summary:{ `min`1q`median`mean`3q`max!(min x;quantile[x;.25];med x;avg x;quantile[x;.75];max x) }
+
 
 
