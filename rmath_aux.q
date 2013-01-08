@@ -3,6 +3,9 @@
 / rnorm: generate n random variates ~N(0,1)
 rnorm:{[n] rnn[n;`float$0;`float$1]}
 
+/ dnorm: normal density at x given ~N(mu,sigma)
+dnorm:{[x;mu;sigma] dn[`float$x;`float$mu;`float$sigma]}
+
 / scale: return x-mean(x)/sd(x)
 scale:{(x-avg x)%dev x}
 
@@ -39,5 +42,6 @@ quantile:{[x;p] xs:asc distinct x; n:count xs; 0.5*sum xs (floor n*p;1+floor n*p
 / summary: condensed summary stats (min/max/mean/median/.25 quantile/.75 quantile)
 summary:{ `min`1q`median`mean`3q`max!(min x;quantile[x;.25];med x;avg x;quantile[x;.75];max x) }
 
-
+/ histogram: simple bin count
+hist{[x;nbins] count each group (abs (-) . range x % nbins) xbar (asc x) }
 
