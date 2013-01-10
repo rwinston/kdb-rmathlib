@@ -1,12 +1,24 @@
 / wrappers for rmath functionality
 
-/ rnorm: generate n random variates ~N(0,1)
+/ rnorm: generate n random variates ~N(0,1) - for convenience only
 rnorm:{[n] rnn[n;`float$0;`float$1]}
+
+/ norm: generate a random variate ~N(mu,sigma)
+norm:{[mu;sigma] rn[`float$mu;`float$sigma]}
 
 / dnorm: normal density at x given ~N(mu,sigma)
 dnorm:{[x;mu;sigma] dn[`float$x;`float$mu;`float$sigma]}
 
-/ scale: return x-mean(x)/sd(x)
+/ pnorm: distribution function at x given ~N(mu,sigma)
+pnorm:{[x;mu;sigma] pn[`float$x;`float$mu;`float$sigma]}
+
+/ qnorm: quantile function 
+qnorm: {[x;mu;sigma] qn[`float$x;`float$mu;`float$sigma]}
+
+/rms: root mean squared
+rms:{sqrt sum (x xexp 2) % (count x)}
+
+/ scale: return x-mean(x)/sd(x) (note R uses x-mean(x)/rms(x))
 scale:{(x-avg x)%dev x}
 
 / sigmoid scale function: f(x)->[0,1]
