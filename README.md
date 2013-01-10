@@ -9,3 +9,13 @@ The source contains the following:
 - rmath_aux.q - extra Q definitions and helpers
 - process.sh - generates Q import lib scripts
 - Makefіle - simple makefile
+
+
+Sample
+=======
+
+In a q session:
+
+q) \l rmath.q
+
+

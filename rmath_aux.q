@@ -43,5 +43,5 @@ quantile:{[x;p] xs:asc distinct x; n:count xs; 0.5*sum xs (floor n*p;1+floor n*p
 summary:{ `min`1q`median`mean`3q`max!(min x;quantile[x;.25];med x;avg x;quantile[x;.75];max x) }
 
 / histogram: simple bin count
-hist{[x;nbins] count each group (abs (-) . range x % nbins) xbar (asc x) }
+hist:{[x;nbins] count each group (abs (-) . range x % nbins) xbar (asc x) }
 

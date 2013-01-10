@@ -1,5 +1,8 @@
+CFLAGS ?= -Wall -bundle -undefined dynamic_lookup -m32 -I/Users/rorywinston/sandbox/R/src/include -I/Users/rorywinston/sandbox/kdb -L/Users/rorywinston/sandbox/R/src/nmath/standalone 
+LDFLAGS ?= -lm -lrmath
+
 rmath.so:
-	gcc -Wall -bundle -undefined dynamic_lookup -m32 -I /Users/rorywinston/sandbox/R/src/include -I /Users/rorywinston/sandbox/kdb rmath.c -L /Users/rorywinston/sandbox/R/src/nmath/standalone -o rmath.so -lm -lRmath
+	gcc ${CFLAGS} rmath.c -o rmath.so -lm -lRmath ${LDFLAGS}
 
 rmath.q: rmath.so
 	sh process.sh > rmath.q
