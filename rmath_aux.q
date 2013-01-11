@@ -24,10 +24,10 @@ rms:{sqrt sum (x xexp 2) % (count x)}
 / scale: return x-mean(x)/sd(x) (note R uses x-mean(x)/rms(x))
 scale:{(x-avg x)%dev x}
 
-/ sigmoid scale function: f(x)->[0,1]
+/ sigmoid function: f(x)->[0,1]
 sigmoid:{1%(1+exp[neg x])}
 
-/ tanh scale function: f(x)->[-1,1]
+/ tanh function: f(x)->[-1,1]
 tanh:{(exp[x]-exp[neg x])%(exp[x]+exp[neg x])}
 
 / minmax scale function: f(x)->[0,1]
@@ -43,7 +43,7 @@ pvar:{(count[x]%(count[x]-1))*var x}
 diag:{i:til x*x;"i" $ (x;x)#raze 0=i mod (x+1)}
 
 / seqn: sequence [from,to] by step by
-seqn:{[from;to;by] $[to < from;'`badrange;]; s:(from+til (to-from-1)); $[by=1;s;c:floor(to-from)%by;z:from+0,sums c#by;z]}
+seqn:{[from;to;by] $[to < from;'`badrange;]; s:(from+til (to-from-1)); $[by=1;s;c:floor(to-from)%by;z:`float$from+0,sums c#by;:z]}
 
 / seq: sequence [from,to]
 seq:{[from;to] seqn[from;to;1]}
