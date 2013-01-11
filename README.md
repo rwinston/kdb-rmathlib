@@ -29,9 +29,9 @@ In a q session:
 
 See
 
-[[http://www.theresearchkitchen.com/archives/835]]
-[[http://www.theresearchkitchen.com/archives/847]]
-[[http://www.theresearchkitchen.com/archives/896]]
+http://www.theresearchkitchen.com/archives/835
+http://www.theresearchkitchen.com/archives/847
+http://www.theresearchkitchen.com/archives/896
 
 for more details
 
