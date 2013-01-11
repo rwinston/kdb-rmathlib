@@ -62,6 +62,20 @@ K dn(K x, K mu, K sigma) {
 }
 
 /**
+ * Random uniform value between a and b
+ */
+K ru(K n, K a, K b) {
+    int i, count=n->i;  
+    double lower = a->f; 
+    double upper = b->f;
+    K ret = ktn(KF, count);
+    for (i = 0; i < count; ++i)
+        kF(ret)[i] = runif(lower, upper);
+
+    return ret;
+}
+
+/**
  * Set seeds for Marsaglia multicarry RNG
  */
 K sseed(K seed1, K seed2) {

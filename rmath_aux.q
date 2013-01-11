@@ -4,7 +4,7 @@
 rnorm:{[n] rnn[n;`float$0;`float$1]}
 
 / norm: generate a random variate ~N(mu,sigma)
-norm:{[mu;sigma] rn[`float$mu;`float$sigma]}
+norm:{[n;mu;sigma] rnn[n;`float$mu;`float$sigma]}
 
 / dnorm: normal density at x given ~N(mu,sigma)
 dnorm:{[x;mu;sigma] dn[`float$x;`float$mu;`float$sigma]}
@@ -14,6 +14,9 @@ pnorm:{[x;mu;sigma] pn[`float$x;`float$mu;`float$sigma]}
 
 / qnorm: quantile function 
 qnorm: {[x;mu;sigma] qn[`float$x;`float$mu;`float$sigma]}
+
+/ runif: uniform random variates [min,max]
+runif:{[n;a;b] ru[`int$n;`float$a;`float$b]}
 
 /rms: root mean squared
 rms:{sqrt sum (x xexp 2) % (count x)}
@@ -40,7 +43,7 @@ pvar:{(count[x]%(count[x]-1))*var x}
 diag:{i:til x*x;"i" $ (x;x)#raze 0=i mod (x+1)}
 
 / seqn: sequence [from,to] by step by
-seqn:{[from;to;by] $[to < from;'order;]; s:(from+til (to-from-1)); $[by=1;s;c:floor(to-from)%by;z:from+0,sums c#by;z]}
+seqn:{[from;to;by] $[to < from;'`badrange;]; s:(from+til (to-from-1)); $[by=1;s;c:floor(to-from)%by;z:from+0,sums c#by;z]}
 
 / seq: sequence [from,to]
 seq:{[from;to] seqn[from;to;1]}

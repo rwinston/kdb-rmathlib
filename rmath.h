@@ -18,4 +18,5 @@ K qn(K,K,K);
 K sseed(K,K);
 K gseed();
 K nchoosek(K,K);
+K ru(K,K,K);
 // END DECLARATIONS
