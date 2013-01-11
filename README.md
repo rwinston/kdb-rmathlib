@@ -16,6 +16,7 @@ Sample
 
 In a q session:
 
+<pre>
  q) \l rmath.q
  q) x:rnorm 1000     / create 1000 normal variates
  q) summary x        / simple statistical summary of x
@@ -24,6 +25,7 @@ In a q session:
  q) quantile[x;.5]   / calculate the 50% quantile
  q) pnorm[0;1.5;1.5] / cdf value for 0 for a N(1.5,1.5) distribution
  q) dnorm[0;1.5;1.5] / normal density at 0 for N(1.5;1.5) distribution
+</pre>
 
 See
 
