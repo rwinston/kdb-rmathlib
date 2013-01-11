@@ -18,8 +18,11 @@ qnorm: {[x;mu;sigma] qn[`float$x;`float$mu;`float$sigma]}
 / runif: uniform random variates [min,max]
 runif:{[n;a;b] ru[`int$n;`float$a;`float$b]}
 
-/rms: root mean squared
+/rms: root mean squared deviation
 rms:{sqrt sum (x xexp 2) % (count x)}
+
+/cv: coefficient of variation
+cv: {[x] rms[x] % avg x }
 
 / scale: return x-mean(x)/sd(x) (note R uses x-mean(x)/rms(x))
 scale:{(x-avg x)%dev x}
@@ -34,7 +37,7 @@ tanh:{(exp[x]-exp[neg x])%(exp[x]+exp[neg x])}
 minmax:{(x-min[x])%(max[x]-min[x]) }
 
 / table: frequency table by symbol
-table:{[x;y] f:{[s]count each group s}; ?[y;();();(f; x)]}
+table:{[x;y] f:{[s]count each group s}; asc ?[y;();();(f; x)]}
 
 / pvar: population variance a la R's var()
 pvar:{(count[x]%(count[x]-1))*var x}
