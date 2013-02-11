@@ -18,6 +18,12 @@ qnorm: {[x;mu;sigma] qn[`float$x;`float$mu;`float$sigma]}
 / runif: uniform random variates [min,max]
 runif:{[n;a;b] ru[`int$n;`float$a;`float$b]}
 
+/ rgamma: random gamma variates with shape and scale
+rgamma:{[n;shape;scale] rg[`int$n; `float$shape; `float$scale]}
+
+/ rbeta: random beta variates with shape parameters a and b
+rbeta:{[n;a;b] rb[`int$n; `float$a; `float$b]}
+
 /rms: root mean squared deviation
 rms:{sqrt sum (x xexp 2) % (count x)}
 

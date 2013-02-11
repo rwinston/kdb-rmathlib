@@ -76,6 +76,35 @@ K ru(K n, K a, K b) {
 }
 
 /**
+ * Random gamma variates with specified shape and scale
+ */
+K rg(K n, K sh, K sc) {
+    int i, count=n->i;
+    double shape = sh->f;
+    double scale = sc->f;
+    K ret = ktn(KF, count);
+    for (i = 0; i < count; ++i) {
+        kF(ret)[i] = rgamma(shape,scale);
+    }
+    return ret;
+}
+
+/**
+ * Random beta variates with shape parameters a and b 
+ */
+K rb(K n, K a, K b) {
+    int i, count=n->i;
+    double shape = a->f;
+    double shape2 = b->f;
+    K ret = ktn(KF, count);
+    for (i = 0; i < count; ++i) {
+        kF(ret)[i] = rbeta(shape,shape2);
+    }
+    return ret;
+}
+
+
+/**
  * Set seeds for Marsaglia multicarry RNG
  */
 K sseed(K seed1, K seed2) {
