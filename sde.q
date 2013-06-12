@@ -19,14 +19,14 @@ euler[f;g]
 / Cox-Ingersoll-Ross
 / dX(t) = (Theta_1 - Theta_2*X(t))dt + Theta_3*sqrt(X(t))*dW(t)
 theta:6 3 2
-g:{[x;y]x[2]*sqrt[y]}
+g:{[x;y]x[2]*sqrt[y]*(rnorm[1] 0)}
 euler[f;g]
 
 / Geometric Brownian Motion
 / dX(t) = Theta_1*X(t)*dt + Theta_2*X(t)*dW(t)
 theta:1 .8
 f:{[x;y]x[0]*y}
-g:{[x;y]x[1]*y}
+g:{[x;y]x[1]*y*(rnorm[1] 0)}
 
 
 
